@@ -1,0 +1,28 @@
+[package]
+name = "sar-auto-splitter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.asr]
+git = "https://github.com/LiveSplit/asr"
+rev = "5eb46194eccb3ae81791eb9bfba70e85029abed3"
+features = ["signature", "flags"]
+
+[dependencies.asr-derive]
+git = "https://github.com/LiveSplit/asr"
+rev = "5eb46194eccb3ae81791eb9bfba70e85029abed3"
+features = []
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+panic = "abort"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 0
+
+[features]
+nightly = []
