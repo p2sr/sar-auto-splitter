@@ -109,6 +109,7 @@ async fn main() {
                             }
                             TIMER_ACTION_RESET => {
                                 timer::reset();
+                                timer::pause_game_time();
                             }
                             _ => (),
                         }
