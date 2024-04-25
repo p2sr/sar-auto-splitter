@@ -101,7 +101,12 @@ async fn main() {
 
                     if action.changed() {
                         match action.current {
-                            TIMER_ACTION_START | TIMER_ACTION_RESTART => {
+                            TIMER_ACTION_START => {
+                                timer::start();
+                            }
+                            TIMER_ACTION_RESTART => {
+                                timer::reset();
+                                timer::pause_game_time();
                                 timer::start();
                             }
                             TIMER_ACTION_SPLIT | TIMER_ACTION_END => {
