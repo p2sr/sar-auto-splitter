@@ -33,7 +33,7 @@ async fn main() {
         timer::pause_game_time();
 
         let process =
-            retry(|| Process::attach("portal2.exe").or_else(|| Process::attach("portal2_linux")))
+            retry(|| Process::attach("portal2.exe").or_else(|| Process::attach("portal2_linux")).or_else(|| Process::attach("infra.exe")))
                 .await;
 
         process

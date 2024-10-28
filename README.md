@@ -16,7 +16,9 @@ cargo build --release
 
 ## Installation
 
-Wasm file is at: `target/wasm32-unknown-unknown/release/sar_auto_splitter.wasm`
+Latest release is included in LiveSplit natively. See [LiveSplit.AutoSplitters](https://github.com/LiveSplit/LiveSplit.AutoSplitters/blob/master/LiveSplit.AutoSplitters.xml)
+
+Wasm file is at: `target/wasm32-unknown-unknown/release/sar_auto_splitter.wasm`. Add to layout (Edit Layout -> Add -> Control -> Auto Splitting Runtime)
 
 ## Debugging
 
