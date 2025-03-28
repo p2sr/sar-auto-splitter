@@ -32,9 +32,19 @@ async fn main() {
 
         timer::pause_game_time();
 
-        let process =
-            retry(|| Process::attach("portal2.exe").or_else(|| Process::attach("portal2_linux")).or_else(|| Process::attach("infra.exe")))
-                .await;
+        let process_names = [
+            "portal2.exe",
+            "portal2_linux",
+            "infra.exe",
+            "beginnersguide.exe",
+            "beginnersguide.bin",
+            "stanley.exe",
+            "stanley_linux",
+        ];
+
+        let process = retry(|| {
+            process_names.iter().find_map(|&name| Process::attach(name))
+        }).await;
 
         process
             .until_closes(async {
